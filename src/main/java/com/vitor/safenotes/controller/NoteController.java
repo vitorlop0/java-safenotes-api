@@ -30,4 +30,14 @@ private NoteService noteService;
     public Note getById(@PathVariable Long id) {
         return noteService.getNoteById(id);
     }
+
+    @DeleteMapping
+    public void deleteAll() {
+        noteService.deleteAllNotes();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id) {
+        noteService.deleteById(id);
+    }
 }

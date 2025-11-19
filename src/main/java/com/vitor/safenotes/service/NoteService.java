@@ -26,4 +26,14 @@ public class NoteService {
     public Note getNoteById(Long id) {
         return noteRepository.findById(id).orElseThrow(() -> new RuntimeException("Nota não encontrada!"));
     }
+
+
+    public void deleteAllNotes() {
+         noteRepository.deleteAll();
+    }
+
+    public void deleteById(long id) {
+         noteRepository.deleteById(id);
+    }
+
 }
