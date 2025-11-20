@@ -12,6 +12,11 @@ public class Note {
     private Long id;
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User owner;
+
     @Column(columnDefinition = "TEXT")
     private String content;
+
 }
