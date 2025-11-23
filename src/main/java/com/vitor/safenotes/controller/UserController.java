@@ -1,5 +1,6 @@
 package com.vitor.safenotes.controller;
 
+import com.vitor.safenotes.dto.UserResponseDTO;
 import com.vitor.safenotes.model.User;
 import com.vitor.safenotes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,11 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
+    public UserResponseDTO register(@RequestBody User user) {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+        User savedUser = userRepository.save(user);
 
-        return userRepository.save(user);
+        return new UserResponseDTO(savedUser.getId(), savedUser.getUsername());
     }
 }
