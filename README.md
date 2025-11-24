@@ -60,7 +60,7 @@ Implementação de lógica rigorosa de **Propriedade (Ownership)** no `NoteServi
     *(No Windows: `.\mvnw.cmd spring-boot:run`)*
 
 4.  **Acesse:**
-    A API estará disponível em: `http://localhost:8081`
+    A API estará disponível em: `http://localhost:8080`
 
 ## 🧪 Documentação da API (Endpoints)
 
