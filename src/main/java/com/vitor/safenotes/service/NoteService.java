@@ -7,6 +7,7 @@ import com.vitor.safenotes.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -36,7 +37,8 @@ public class NoteService {
     }
 
     public List<Note> getAllNotes() {
-        return noteRepository.findAll();
+        User user = getLoggedUser();
+        return noteRepository.findAllByOwnerUsername(user.getUsername());
     }
 
     public Note getNoteById(Long id) {
@@ -54,12 +56,16 @@ public class NoteService {
     }
 
 
+    @Transactional
     public void deleteAllNotes() {
-         noteRepository.deleteAll();
+        User user = getLoggedUser();
+         noteRepository.deleteAllByOwner(user);
     }
 
+    @Transactional
     public void deleteById(long id) {
-         noteRepository.deleteById(id);
+        Note note = getNoteById(id);
+         noteRepository.delete(note);
     }
 
 }
