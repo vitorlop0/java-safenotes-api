@@ -37,3 +37,38 @@ Implementação de lógica rigorosa de **Propriedade (Ownership)** no `NoteServi
 * Java 17 instalado.
 * PostgreSQL a rodar na porta `5432`.
 * Banco de dados criado com o nome `safenotes_db`.
+
+### Passo a Passo
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/SEU_USUARIO/SafeNotes.git](https://github.com/SEU_USUARIO/SafeNotes.git)
+    cd SafeNotes
+    ```
+
+2.  **Configure a Senha do Banco:**
+    Por segurança, o projeto espera a senha do banco numa variável de ambiente.
+    * **Linux/Mac:** `export DB_PASSWORD=sua_senha_postgres`
+    * **Windows (PowerShell):** `$env:DB_PASSWORD="sua_senha_postgres"`
+    * *(Alternativa para IDE):* Configure a variável `DB_PASSWORD` nas configurações de execução (Run Configuration).
+
+3.  **Execute a aplicação:**
+    Não é necessário ter o Maven instalado, use o Wrapper do projeto:
+    ```bash
+    ./mvnw spring-boot:run
+    ```
+    *(No Windows: `.\mvnw.cmd spring-boot:run`)*
+
+4.  **Acesse:**
+    A API estará disponível em: `http://localhost:8081`
+
+## 🧪 Documentação da API (Endpoints)
+
+| Método | Endpoint | Descrição | Auth Necessária? |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/register` | Cria um novo utilizador (Senha é criptografada) | ❌ Não |
+| `POST` | `/notes` | Cria uma nota vinculada ao utilizador logado | ✅ Sim (Basic Auth) |
+| `GET` | `/notes` | Lista apenas as notas do utilizador logado | ✅ Sim (Basic Auth) |
+| `GET` | `/notes/{id}` | Lê uma nota específica (Valida propriedade) | ✅ Sim (Basic Auth) |
+| `DELETE` | `/notes/{id}` | Apaga uma nota específica (Valida propriedade) | ✅ Sim (Basic Auth) |
+| `DELETE` | `/notes` | Apaga todas as notas do utilizador logado | ✅ Sim (Basic Auth) |
