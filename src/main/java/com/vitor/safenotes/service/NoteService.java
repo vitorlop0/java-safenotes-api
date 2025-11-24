@@ -4,8 +4,10 @@ import com.vitor.safenotes.model.Note;
 import com.vitor.safenotes.model.User;
 import com.vitor.safenotes.repository.NoteRepository;
 import com.vitor.safenotes.repository.UserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -38,7 +40,17 @@ public class NoteService {
     }
 
     public Note getNoteById(Long id) {
-        return noteRepository.findById(id).orElseThrow(() -> new RuntimeException("Nota não encontrada!"));
+
+        Note note = noteRepository.findById(id).
+                orElseThrow(() -> new RuntimeException("Nota não encontrada!"));
+
+        User user = getLoggedUser();
+
+        if (!note.getOwner().getUsername().equals(user.getUsername())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "ACESSO NEGADO! Esta nota não é sua.");
+        }
+
+        return note;
     }
 
 
