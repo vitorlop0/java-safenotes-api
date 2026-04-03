@@ -42,7 +42,7 @@ Implementação de lógica rigorosa de **Propriedade (Ownership)** no `NoteServi
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/SEU_USUARIO/SafeNotes.git](https://github.com/SEU_USUARIO/SafeNotes.git)
+    git clone [https://github.com/vitorlop0/SafeNotes.git](https://github.com/vitorlop0/SafeNotes.git)
     cd SafeNotes
     ```
 
