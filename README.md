@@ -1,8 +1,8 @@
-# 🛡️ SafeNotes API - Java Spring Boot & AppSec
+# SafeNotes API - Java Spring Boot & AppSec
 
 Uma API REST robusta desenvolvida com foco em **Security by Design**, demonstrando a implementação prática de defesa contra as vulnerabilidades mais críticas do OWASP Top 10 em um ambiente Spring Boot.
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **Java 17** (LTS)
 * **Spring Boot 3.5.7**
@@ -13,7 +13,7 @@ Uma API REST robusta desenvolvida com foco em **Security by Design**, demonstran
 * **Lombok** (Produtividade e redução de boilerplate)
 * **Maven** (Gerenciamento de dependências)
 
-## 🔒 Implementações de Segurança (AppSec)
+## Implementações de Segurança (AppSec)
 
 Este projeto foi desenhado para identificar e corrigir falhas comuns de segurança em APIs:
 
@@ -62,7 +62,7 @@ Implementação de lógica rigorosa de **Propriedade (Ownership)** no `NoteServi
 4.  **Acesse:**
     A API estará disponível em: `http://localhost:8080`
 
-## 🧪 Documentação da API (Endpoints)
+## Documentação da API (Endpoints)
 
 | Método | Endpoint | Descrição | Auth Necessária? |
 | :--- | :--- | :--- | :--- |
