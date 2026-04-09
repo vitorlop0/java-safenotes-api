@@ -43,7 +43,7 @@ Implementação de lógica rigorosa de **Propriedade (Ownership)** no `NoteServi
 1.  **Clone o repositório:**
     ```bash
     git clone https://github.com/vitorlop0/java-safenotes-api.git
-    cd SafeNotes
+    cd java-safenotes-api
     ```
 
 2.  **Configure a Senha do Banco:**
